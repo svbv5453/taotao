@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+
+    <!--定义别名-->
+    <typeAliases>
+        <package name="com.sh.taotao.po"/>
+
+    </typeAliases>
+
+    <mappers>
+
+
+        <!--class:UserMapper的全限定名
+                必须在一个目录下，且同名-->
+
+        <!--package: 指定包下所有mapper，
+                要求：必须在同一个目录，且同名-->
+        <package name="com.sh.taotao.mapper"/>
+
+        <!--resource：-->
+    </mappers>
+
+</configuration>
