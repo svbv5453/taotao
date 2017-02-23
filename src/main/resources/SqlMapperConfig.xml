@@ -8,10 +8,15 @@
 
     <!--定义别名-->
     <typeAliases>
-        <package name="com.sh.taotao.po"/>
+        <package name="com.sh.ssm.taotao.po"/>
 
     </typeAliases>
-
+    <!--添加分页插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
     <mappers>
 
 
@@ -20,9 +25,11 @@
 
         <!--package: 指定包下所有mapper，
                 要求：必须在同一个目录，且同名-->
-        <package name="com.sh.taotao.mapper"/>
+        <package name="com.sh.ssm.taotao.mapper"/>
 
         <!--resource：-->
     </mappers>
+    
+
 
 </configuration>
