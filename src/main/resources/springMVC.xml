@@ -31,4 +31,13 @@
     <!--静态资源映射处理-->
     <mvc:resources mapping="/js/**" location="/js/"/>
     <mvc:resources mapping="/css/**" location="/css/"/>
+
+    <!--图片上传：配置文件上传处理器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize">
+            <value>5242880</value>
+        </property>
+
+    </bean>
+
 </beans>
