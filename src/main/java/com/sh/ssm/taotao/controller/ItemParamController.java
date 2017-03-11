@@ -37,4 +37,10 @@ public class ItemParamController {
         logger.debug("cid" + cid);
         return itemParamService.getItemParamByCid(cid);
     }
+
+    @RequestMapping("/rest/item/param/save/{cid}")
+    @ResponseBody
+    public TaotaoResult addItemParam(@PathVariable Long cid, String paramData) {
+        return itemParamService.addItemParam(cid, paramData);
+    }
 }

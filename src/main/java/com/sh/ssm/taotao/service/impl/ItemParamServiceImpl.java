@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,6 +44,7 @@ public class ItemParamServiceImpl implements ItemParamService{
     }
 
     public TaotaoResult getItemParamByCid(Long cid) {
+
         //条件查询
         TbItemParamExample example = new TbItemParamExample();
         TbItemParamExample.Criteria criteria = example.createCriteria();
@@ -54,6 +56,17 @@ public class ItemParamServiceImpl implements ItemParamService{
             return TaotaoResult.ok(tbItemParam);
         }
 
+        return TaotaoResult.ok();
+    }
+
+    public TaotaoResult addItemParam(Long cid, String paramData) {
+        TbItemParam tbItemParam = new TbItemParam();
+        tbItemParam.setItemCatId(cid);
+        tbItemParam.setParamData(paramData);
+        Date date = new Date();
+        tbItemParam.setCreated(date);
+        tbItemParam.setUpdated(date);
+        tbItemParamMapper.insert(tbItemParam);
         return TaotaoResult.ok();
     }
 }

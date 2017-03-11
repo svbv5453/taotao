@@ -6,11 +6,13 @@ import com.sh.ssm.common.pojo.TaotaoResult;
 import com.sh.ssm.common.utils.IDUtils;
 import com.sh.ssm.taotao.mapper.TbItemDescMapper;
 import com.sh.ssm.taotao.mapper.TbItemMapper;
+import com.sh.ssm.taotao.mapper.TbItemParamItemMapper;
 import com.sh.ssm.taotao.po.TbItem;
 import com.sh.ssm.taotao.po.TbItemDesc;
 import com.sh.ssm.taotao.po.TbItemExample;
-import com.sh.ssm.taotao.service.ItemService;
+import com.sh.ssm.taotao.po.TbItemParamItem;
 import com.sh.ssm.taotao.pojo.EasyUiDataGridResult;
+import com.sh.ssm.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,10 @@ public class ItemServiceImpl implements ItemService{
 
     @Autowired
     private TbItemDescMapper tbItemDescMapper;
+
+    @Autowired
+    private TbItemParamItemMapper tbItemParamItemMapper;
+
     public EasyUiDataGridResult getItemList(Integer page, Integer rows) {
         //分页处理
         PageHelper.startPage(page, rows);
@@ -44,9 +50,9 @@ public class ItemServiceImpl implements ItemService{
         return result;
     }
 
-    public TaotaoResult addItem(TbItem tbItem, String descItem) {
+    public TaotaoResult addItem(TbItem tbItem, String descItem, String itemParams) {
         /**
-         * 补全tbItem和tbItemDesc的字段
+         * 补全tbItem和tbItemDesc以及tbItemParam的字段
          */
         Long itemId = IDUtils.genItemId();
         tbItem.setId(itemId);
@@ -63,6 +69,13 @@ public class ItemServiceImpl implements ItemService{
         tbItemDesc.setCreated(date);
         tbItemDesc.setUpdated(date);
         tbItemDescMapper.insert(tbItemDesc);
+
+        TbItemParamItem tbItemParamItem = new TbItemParamItem();
+        tbItemParamItem.setItemId(itemId);
+        tbItemParamItem.setParamData(itemParams);
+        tbItemParamItem.setCreated(date);
+        tbItemParamItem.setUpdated(date);
+        tbItemParamItemMapper.insert(tbItemParamItem);
 
         return TaotaoResult.ok();
     }

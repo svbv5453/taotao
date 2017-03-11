@@ -14,4 +14,7 @@ public interface ItemParamService {
     public EasyUiDataGridResult findAllItemParam(Integer page, Integer rows);
 
     public TaotaoResult getItemParamByCid(Long cid);
+
+    public TaotaoResult addItemParam(Long cid, String paramData);
+
 }
