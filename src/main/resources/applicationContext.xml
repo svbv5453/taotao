@@ -36,7 +36,8 @@
     <!-- bean的名字默认为mapper接口类名的首字母小写 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 指定批量mapper配置的包名 -->
-        <property name="basePackage" value="com.sh.ssm.taotao.mapper
+        <property name="basePackage" value="com.sh.ssm.taotao.admin.mapper;
+                                            com.sh.ssm.taotao.front.mapper
                                            "></property>
 
         <!-- 指定使用的SqlSessionFactory -->
@@ -45,6 +46,7 @@
 
     <!--使用组件扫描指定serviceBean-->
 
-    <context:component-scan base-package="com.sh.ssm.taotao.service.impl"/>
+    <context:component-scan base-package="com.sh.ssm.taotao.admin.service.impl;
+                                          com.sh.ssm.taotao.front.service.impl"/>
 
 </beans>

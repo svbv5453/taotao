@@ -8,7 +8,8 @@
 
     <!--定义别名-->
     <typeAliases>
-        <package name="com.sh.ssm.taotao.po"/>
+        <package name="com.sh.ssm.taotao.admin.po"/>
+        <package name="com.sh.ssm.taotao.front.po"/>
 
     </typeAliases>
     <!--添加分页插件-->
@@ -25,7 +26,8 @@
 
         <!--package: 指定包下所有mapper，
                 要求：必须在同一个目录，且同名-->
-        <package name="com.sh.ssm.taotao.mapper"/>
+        <package name="com.sh.ssm.taotao.admin.mapper"/>
+        <package name="com.sh.ssm.taotao.front.mapper"/>
 
         <!--resource：-->
     </mappers>

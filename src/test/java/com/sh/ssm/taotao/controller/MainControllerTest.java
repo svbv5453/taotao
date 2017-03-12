@@ -2,9 +2,9 @@ package com.sh.ssm.taotao.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.sh.ssm.taotao.mapper.TbItemMapper;
-import com.sh.ssm.taotao.po.TbItem;
-import com.sh.ssm.taotao.po.TbItemExample;
+import com.sh.ssm.taotao.admin.mapper.TbItemMapper;
+import com.sh.ssm.taotao.admin.po.TbItem;
+import com.sh.ssm.taotao.admin.po.TbItemExample;
 import junit.framework.TestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
